@@ -1,3 +1,18 @@
+.title {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--name {
+    width: 1000px;
+  }
+
+  &--submit {
+    background: linear-gradient(#f00, #700, #300);
+  }
+}
+
 .buttons {
   margin-left: -10px;
 
@@ -6,9 +21,18 @@
     color: #fff;
     @include box-shadows;
   }
+
+  &--title {
+    background: linear-gradient(#f00, #700, #300);
+    width: inherit;
+  }
 }
 
 .buttons {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,21 +42,44 @@
 .tiles {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-left: -10px;
   margin-right: -10px;
 
   .tile {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
     .cover {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rbga(0, 0, 0, .5);
-      height: 100%;
-      width: 100%;
+      background: #000;
+      opacity: .6;
+      height: 300px;
+      width: 300px;
+      transition: 1s;
 
+      &:hover {
+        opacity: 0;
+        transition: 1s;
+      }
+
+    }
+
+    .button {
+      z-index: 5;
+      margin-bottom: 10px;
     }
   }
 

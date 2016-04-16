@@ -1,28 +1,29 @@
-<form class="header">
+<div class="header">
   <div class="container">
+    <form class="title" ng-submit="comicCtrl.newComic()">
+      <input class="input title--name" type="text" placeholder="Comic Name" ng-model="comicCtrl.input" ng-hide="comicCtrl.name !== ''">
+      <input class="button title--submit" type="submit" ng-hide="comicCtrl.name !== ''">
+    </form>
     <div class="buttons">
-      <input class="button buttons--new-tile" type="submit" value="New Tile">
-      <input class="button buttons--border-radius" type="submit" value="Border Radius">
-      <input class="button buttons--border-width" type="submit" value="Border Width">
-      <input class="button buttons--color-picker" type="submit" value="Color Picker">
-      <input class="input buttons--name" type="text" placeholder="Comic Name">
-      <input class="button buttons--submit" type="submit">
+      <input class="button buttons--new-tile" type="submit" value="New Tile" ng-click="comicCtrl.newTile()" ng-hide="comicCtrl.name === ''">
+      <input class="button buttons--border-radius" type="submit" value="Border Radius" ng-hide="comicCtrl.name === ''">
+      <input class="button buttons--border-width" type="submit" value="Border Width" ng-hide="comicCtrl.name === ''">
+      <input class="button buttons--color-picker" type="submit" value="Color Picker" ng-hide="comicCtrl.name === ''">
+      <input class="button buttons--title" type="submit" value="{{ comicCtrl.name }}" ng-hide="comicCtrl.name === ''">
     </div>
   </div>
-</form>
-
+</div>
 
 <div class="container">
   <div class="tiles">
-    <div class="small tile" ng-click="comicCtrl.showButtons()">
-      <div class="cover"></div>
-      <input type="submit" value="Edit" class="button" ng-show="comicCtrl.show">
-      <input type="submit" value="Delete" class="button" ng-show="comicCtrl.show">
-
+    <div class="small tile" ng-repeat="tile in comicCtrl.tiles">
+      <img ng-src="{{ tile.img }}">
+      <input type="submit" value="Edit" class="button">
+      <input type="submit" value="Delete" class="button">
+      <div class="cover" ng-click="comicCtrl.showButtons(tile)"></div>
     </div>
-    <div class="small tile"></div>
-    <div class="small tile"></div>
   </div>
+</div>
 
   <div class="footer">
     <input class="button" type="submit" value="Dark Mode">

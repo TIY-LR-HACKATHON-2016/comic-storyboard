@@ -62,14 +62,31 @@ body {
   margin: 10px;
   box-shadow: 10px 10px 10px 1px #111; }
 
+.title {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .title--name {
+    width: 1000px; }
+  .title--submit {
+    background: linear-gradient(#f00, #700, #300); }
+
 .buttons {
   margin-left: -10px; }
   .buttons--submit {
     background: linear-gradient(#f00, #700, #300);
     color: #fff;
     box-shadow: 10px 10px 10px 1px #111; }
+  .buttons--title {
+    background: linear-gradient(#f00, #700, #300);
+    width: inherit; }
 
 .buttons {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,18 +95,35 @@ body {
 .tiles {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-left: -10px;
   margin-right: -10px; }
   .tiles .tile {
-    position: relative; }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .tiles .tile img {
+      position: absolute;
+      top: 0;
+      left: 0; }
     .tiles .tile .cover {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rbga(0, 0, 0, 0.5);
-      height: 100%;
-      width: 100%; }
+      background: #000;
+      opacity: .6;
+      height: 300px;
+      width: 300px;
+      transition: 1s; }
+      .tiles .tile .cover:hover {
+        opacity: 0;
+        transition: 1s; }
+    .tiles .tile .button {
+      z-index: 5;
+      margin-bottom: 10px; }
 
 .footer {
   width: 200px;
