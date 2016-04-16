@@ -1,3 +1,5 @@
+using ComicStoryBook.Web.Models;
+
 namespace ComicStoryBook.Web.Migrations
 {
     using System;
@@ -26,6 +28,11 @@ namespace ComicStoryBook.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            if (!context.ComicBooks.Any())
+            {
+                var newbook = new ComicBook() {Name = "Adventures of Naked Capt. America"};
+            }
         }
     }
 }
