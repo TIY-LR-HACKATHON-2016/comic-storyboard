@@ -1,0 +1,39 @@
+body {
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://s-media-cache-ak0.pinimg.com/736x/a1/d2/55/a1d2551f6f2f4277f357b505d4dd3904.jpg");
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("http://thesuperslice.com/wp-content/uploads/2011/11/14-Onomatopoeia-30-x-30cm.jpg");
+  background-position: 17%;
+  width: 100vw;
+  height: 200px;
+  border-bottom: 2px solid #000;
+}
+
+.button {
+  @include button;
+  @include box-shadows;
+}
+
+.input {
+  @include button;
+  padding-left: 30px;
+  background: linear-gradient(#fff, #eee, #333);
+
+  &::-webkit-input-placeholder {
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+.tile {
+  background-color: red;
+  border: 2px solid #000;
+  margin: 10px;
+  @include box-shadows;
+}
