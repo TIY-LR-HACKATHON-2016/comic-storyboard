@@ -17,7 +17,7 @@ namespace ComicStoryBook.Web.Models
 
     public enum TileType
     {
-    Small=1,
+    Small,
     Long,
     Wide,
     Big,
