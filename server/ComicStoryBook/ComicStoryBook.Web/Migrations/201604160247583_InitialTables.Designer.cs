@@ -7,13 +7,13 @@ namespace ComicStoryBook.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class IntialTable : IMigrationMetadata
+    public sealed partial class InitialTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IntialTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604160158293_IntialTable"; }
+            get { return "201604160247583_InitialTables"; }
         }
         
         string IMigrationMetadata.Source

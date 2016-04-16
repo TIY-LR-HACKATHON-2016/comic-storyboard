@@ -3,7 +3,7 @@ namespace ComicStoryBook.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class IntialTable : DbMigration
+    public partial class InitialTables : DbMigration
     {
         public override void Up()
         {
@@ -23,7 +23,7 @@ namespace ComicStoryBook.Web.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Text = c.String(),
                         Image = c.String(),
-                        TileType = c.String(),
+                        TileType = c.Int(nullable: false),
                         ComicBook_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
