@@ -1,6 +1,8 @@
 class TileController {
-  constructor($http) {
+  constructor($http, $state) {
     this._$http = $http;
+    this._$state = $state;
+    this.input = "";
 
     this.carousel = [
       [`http://vignette1.wikia.nocookie.net/p__/images/1/1a/Hong-kong-phooey.jpg/revision/latest?cb=20120115140257&path-prefix=protagonist`,
@@ -138,10 +140,89 @@ class TileController {
         `http://static.comicvine.com/uploads/original/13/135592/3638103-1822846292-41266.jpg`,
 
         `http://i.kinja-img.com/gawker-media/image/upload/e8vj2jf9txjz3yvqt3e7.jpg`,
-
-
-
       ],
+      [`http://img04.deviantart.net/1f41/i/2009/081/5/9/captain_caveman_classic_by_slappy427.jpg`,
+
+        `http://vignette3.wikia.nocookie.net/boomerang-from-cartoon-network/images/c/cd/Captain_Caveman.jpg/revision/latest?cb=20130731162826`,
+
+        `http://img2.timeinc.net/people/i/2014/sandbox/news/140203/captain/captain-600x450.jpg`,
+
+        `http://orig06.deviantart.net/5001/f/2009/336/d/8/captaon_caveman_colored_by_gianmac.jpg`,
+      ],
+      [
+        `https://s-media-cache-ak0.pinimg.com/236x/0a/2c/ff/0a2cff9b7ce7d48464b51d2215ce03ec.jpg`,
+
+        `http://seveninchesofyourtime.com/wp-content/uploads/2015/03/UNDERDOG.jpg`,
+
+        `https://michaelsfishbowl.files.wordpress.com/2010/12/simon-bar-sinister.jpg`,
+
+        `https://s-media-cache-ak0.pinimg.com/236x/3e/1d/5f/3e1d5f2456e17ff1de734e4d63ebe57f.jpg`,
+
+        `https://s-media-cache-ak0.pinimg.com/236x/47/19/0a/47190a13235af3d6f921a84029c3449e.jpg`,
+
+        `http://static4.comicvine.com/uploads/scale_small/1/12075/593988-riffraff.jpg`,
+
+        `http://36.media.tumblr.com/237a671364e3839687085ff8fa305aeb/tumblr_np5bgeJy8R1ta3x9ro7_500.jpg`,
+
+        `http://freedom-muse.com/wp-content/uploads/2015/04/Villain.jpg`,
+
+        `https://s-media-cache-ak0.pinimg.com/736x/04/7d/ed/047dede1dbe3852dea70ab387bf20c9a.jpg`,
+
+        `https://jennzuko.files.wordpress.com/2014/11/villian.gif`,
+
+        `http://i0.wp.com/listverse.com/wp-content/uploads/2008/01/cecilmad.jpg`,
+      ],
+      [`http://vignette2.wikia.nocookie.net/nickelodeon/images/1/14/Ren%2B%2BStimpy.jpg/revision/latest?cb=20130626035406`,
+
+        `http://img11.deviantart.net/2420/i/2010/023/a/2/ren_and_stimpy_by_buttercupnergal.png`,
+
+        `http://media.bigshinyrobot.com/uploads/2015/06/renstimpy_0.jpg`,
+
+        `http://2.bp.blogspot.com/-oR5TfG_dajI/T0OlsyPJY7I/AAAAAAAAAOo/iXnW_auoyL4/s1600/145.jpg`,
+
+        `http://vignette1.wikia.nocookie.net/renandstimpy/images/b/b6/Image-2.jpg/revision/latest?cb=20150916130346`,
+      ],
+      [`http://static.tvtropes.org/pmwiki/pub/images/jetsons.jpg`,
+
+        `http://cbsnews1.cbsistatic.com/hub/i/r/2013/04/17/1e8cec98-c407-11e2-a43e-02911869d855/thumbnail/620x350/43ef4260f7c70bfc185badda38d327bd/Jetsons.jpg`,
+
+        `https://blog.lookout.com/wp-content/uploads/2011/09/the-jetsons.jpg`,
+
+        `http://public.media.smithsonianmag.com/legacy_blog/jetsons-tv-production-studio.jpeg`,
+
+        `http://4.bp.blogspot.com/-neXhb0Aj7vM/TdtFuX69L9I/AAAAAAAAAdY/QUVCxCGzB8g/s1600/jet%2Bbank.jpg`,
+
+        `https://s-media-cache-ak0.pinimg.com/originals/67/2b/10/672b106cb5214c1a2aab5b33239eec6e.jpg`,
+
+        `https://rioforce.files.wordpress.com/2013/05/rosie-the-robot.png`,
+
+        `http://cdn.smosh.com/sites/default/files/ftpuploads/bloguploads/0913/little-dipper-school-jetsons.jpg`,
+
+        `http://cdn.freshome.com/wp-content/uploads/2013/03/what-you-can-learn-from-the-jetsons-about-home-automation-image-5.jpg`,
+
+        `http://www.cartoonscrapbook.com/01pics-L/jetsons_L76.jpg`,
+
+        `https://i.kinja-img.com/gawker-media/image/upload/oinmyiehw5qsahu0ozu6.jpg`,
+
+        `http://public.media.smithsonianmag.com/legacy_blog/jetsons-rosey-mack.jpg`,
+
+        `http://animatedviews.com/wp-content/uploads/2009/06/jetsonss1-3.jpg`,
+      ],
+      [
+        `http://vignette2.wikia.nocookie.net/heman/images/c/c3/Heman83.jpg/revision/latest?cb=20090716165926`,
+
+        `http://images-cdn.moviepilot.com/images/c_fill,h_478,w_850/t_mp_quality/ux2car5n820fwdulp2cd/the-strange-history-of-he-man-and-the-masters-of-the-universe-710937.jpg`,
+
+        `http://vignette1.wikia.nocookie.net/heman/images/5/5a/200X-Battlecat.jpg/revision/latest?cb=20111102180257`,
+
+        `http://i448.photobucket.com/albums/qq204/hawkeyeflame/he-man_beast_man_zpsc8445a40.jpg`,
+
+        `http://www.bustatoons.com/blog_images/blog_bite_02.jpg`,
+
+        `https://nerdymom61023.files.wordpress.com/2014/02/tt-heman-and-teela.jpg`,
+
+
+      ]
 
 
 
@@ -175,6 +256,28 @@ class TileController {
     } else {
       this.carouselImage += 1;
     }
+  }
+
+  captionTile() {
+    this.caption = this.input;
+  }
+
+  selectImage() {
+    this.image = this.carousel[this.carouselCategory][this.carouselImage];
+  }
+
+  saveData() {
+    this._$state.go('index');
+
+    this._$http
+      .post(`http://tiycomicbook.azurewebsites.net/comicbooks/index`, {
+        box: 'small',
+        img: this.carousel[this.carouselCategory][this.carouselImage],
+        text: this.caption
+      })
+      .then((response) => {
+        console.log(response);
+      });
   }
 }
 

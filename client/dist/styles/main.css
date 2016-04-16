@@ -70,17 +70,54 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .options .input {
+    width: 500px; }
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .carousel select {
+    z-index: 2;
+    height: 25px;
+    font-size: 1rem;
+    background: linear-gradient(#fff, #eee, #333); }
 
 .slider {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 154px; }
-  .slider img {
-    width: 150px;
-    height: 150px;
-    border: 2px solid black;
-    box-shadow: 10px 10px 10px 1px #111; }
+  .slider .imgContainer {
+    position: relative; }
+    .slider .imgContainer:hover .cover {
+      opacity: .7;
+      transition: 1s; }
+    .slider .imgContainer img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid black;
+      box-shadow: 10px 10px 10px 1px #111; }
+    .slider .imgContainer .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 154px;
+      width: 154px;
+      opacity: 0;
+      transition: 1s;
+      background: #000; }
+    .slider .imgContainer .button {
+      position: absolute;
+      width: 50px;
+      top: 50%;
+      left: 43%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      opacity: 0; }
+    .slider .imgContainer:hover .button {
+      opacity: 1; }
   .slider i {
     color: #fff;
     font-size: 50px;

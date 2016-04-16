@@ -1,29 +1,59 @@
-<div class="header">
-  <div class="container">
-    <div class="options">
-      <input class="input" type="text" placeholder="Caption" ng-model="tileCtrl.name">
-      <input class="button" type="submit">
+<form ng-submit="tileCtrl.captionTile()">
+  <div class="header">
+    <div class="container">
+      <div class="options">
+        <input class="input" type="text" placeholder="Caption" ng-model="tileCtrl.input">
+        <input class="button" type="submit">
 
-      <div class="slider">
-        <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
-        <img src="{{ tileCtrl.carousel[tileCtrl.carouselCategory][tileCtrl.carouselImage] }}">
-        <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
+        <div class="carousel">
+          <div class="slider">
+            <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
+            <div class="imgContainer">
+              <img src="{{ tileCtrl.carousel[tileCtrl.carouselCategory][tileCtrl.carouselImage] }}">
+              <div class="cover"></div>
+              <input type="submit" class="button" value="Select" ng-click="tileCtrl.selectImage()">
+            </div>
+            <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
+          </div>
+          <select class="button" name="Categories" ng-model="tileCtrl.carouselCategory">
+
+            <option selected class="button" value="0">Hong-Kong Phooey</option>
+            <option class="button" value="1">Archer</option>
+            <option class="button" value="2">Calvin and Hobbes</option>
+            <option class="button" value="3">SuperFriends</option>
+            <option class="button" value="4">Scooby-Doo</option>
+            <option class="button" value="5">Attack on Titan</option>
+            <option class="button" value="6">Captain caveman</option>
+            <option class="button" value="7">UnderDog</option>
+            <option class="button" value="8">Ren &amp; Stimpy</option>
+            <option class="button" value="9">Jetsons</option>
+            <option class="button" value="10">He-Man</option>
+            <option class="button" value="11">Archer</option>
+            <option class="button" value="12">Archer</option>
+            <option class="button" value="13">Archer</option>
+            <option class="button" value="14">Archer</option>
+
+
+
+          </select>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <div class="tile">
-  <img class="image" src="http://www.placecage.com/200/200"/>
+  <img class="image" ng-src="{{ tileCtrl.image }}"/>
 </div>
 
 <div class="caption">
-  <caption>Pic of cage</caption>
+  <caption>{{ tileCtrl.caption }}</caption>
 </div>
 
 
 <div class="footer">
 
-  <input class="button" type="submit" value="Go Back">
-  <input class="button" type="submit" value="Save">
+  <input class="button" type="submit" value="Go Back" ui-sref="index">
+  <input class="button" type="submit" value="Save" ng-click="tileCtrl.saveData()">
 </div>

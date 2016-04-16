@@ -3,6 +3,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .input {
+    width: 500px;
+  }
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  select {
+    z-index: 2;
+    height: 25px;
+    font-size: 1rem;
+    background: linear-gradient(#fff, #eee, #333);
+  }
 }
 
 .slider {
@@ -11,11 +29,45 @@
   align-items: center;
   height: 154px;
 
-  img {
-    width: 150px;
-    height: 150px;
-    border: 2px solid black;
-    @include box-shadows;
+  .imgContainer {
+    position: relative;
+
+    &:hover .cover {
+      opacity: .7;
+      transition: 1s;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid black;
+      @include box-shadows;
+    }
+
+    .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 154px;
+      width: 154px;
+      opacity: 0;
+      transition: 1s;
+      background: #000;
+    }
+
+    .button {
+      position: absolute;
+      width: 50px;
+      top: 50%;
+      left: 43%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      opacity: 0;
+    }
+
+    &:hover .button {
+      opacity: 1;
+    }
   }
   i {
     color: #fff;
