@@ -1,1 +1,30 @@
-Comic View!
+<form class="header">
+  <div class="container">
+    <div class="buttons">
+      <input class="button buttons--new-tile" type="submit" value="New Tile">
+      <input class="button buttons--border-radius" type="submit" value="Border Radius">
+      <input class="button buttons--border-width" type="submit" value="Border Width">
+      <input class="button buttons--color-picker" type="submit" value="Color Picker">
+      <input class="input buttons--name" type="text" placeholder="Comic Name">
+      <input class="button buttons--submit" type="submit">
+    </div>
+  </div>
+</form>
+
+
+<div class="container">
+  <div class="tiles">
+    <div class="small tile" ng-click="comicCtrl.showButtons()">
+      <div class="cover"></div>
+      <input type="submit" value="Edit" class="button" ng-show="comicCtrl.show">
+      <input type="submit" value="Delete" class="button" ng-show="comicCtrl.show">
+
+    </div>
+    <div class="small tile"></div>
+    <div class="small tile"></div>
+  </div>
+
+  <div class="footer">
+    <input class="button" type="submit" value="Dark Mode">
+  </div>
+</div>

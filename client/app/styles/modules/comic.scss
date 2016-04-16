@@ -1,0 +1,50 @@
+.buttons {
+  margin-left: -10px;
+
+  &--submit {
+    background: linear-gradient(#f00, #700, #300);
+    color: #fff;
+    @include box-shadows;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.tiles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  .tile {
+    position: relative;
+
+    .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rbga(0, 0, 0, .5);
+      height: 100%;
+      width: 100%;
+
+    }
+  }
+
+
+}
+
+.footer {
+  width: 200px;
+  margin: 20px auto;
+  clear: both;
+
+  .button {
+    margin: 0;
+  }
+}
