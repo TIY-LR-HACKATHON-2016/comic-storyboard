@@ -1,21 +1,29 @@
 <div class="header">
-  <img class="header-image"  src="http://thesuperslice.com/wp-content/uploads/2011/11/14-Onomatopoeia-30-x-30cm.jpg">
   <div class="container">
-    <div class="caption">
-      <h1>Caption</h1>
-      <input type="text" placeholder="" ng-model="tileCtrl.name">
-    </div>
+    <div class="options">
+      <input class="input" type="text" placeholder="Caption" ng-model="tileCtrl.name">
+      <input class="button" type="submit">
 
-    <div class="slider">
-      <h1>Image Gallery</h1>
-      <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
-      <img src="{{ tileCtrl.carousel[tileCtrl.carouselImage] }}">
-      <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
+      <div class="slider">
+        <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
+        <img src="{{ tileCtrl.carousel[tileCtrl.carouselImage] }}">
+        <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="tile">
   <img class="image" src="http://www.placecage.com/200/200"/>
+</div>
+
+<div class="caption">
   <caption>Pic of cage</caption>
+</div>
+
+
+<div class="footer">
+
+  <input class="button" type="submit" value="Go Back">
+  <input class="button" type="submit" value="Save">
 </div>

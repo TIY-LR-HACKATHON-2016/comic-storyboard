@@ -1,31 +1,138 @@
-.caption {
-  font-family: Verdana;
-  color: #cc0000;
-  text-shadow: 3px 3px gray;
-  display: inline-block; }
-  .caption h1 {
-    display: inline-block;
-    margin-right: 10px; }
-  .caption input {
-    border: 2px solid gray;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px black;
-    padding: 5px 5px 5px 5px; }
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+* {
+  margin: 0;
+  padding: 0; }
+  * *:focus {
+    outline: none; }
+
+a {
+  text-decoration: none; }
+
+body {
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://s-media-cache-ak0.pinimg.com/736x/a1/d2/55/a1d2551f6f2f4277f357b505d4dd3904.jpg"); }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+
+.header {
+  background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("http://thesuperslice.com/wp-content/uploads/2011/11/14-Onomatopoeia-30-x-30cm.jpg");
+  background-position: 17%;
+  width: 100vw;
+  height: 200px;
+  border-bottom: 2px solid #000; }
+
+.button {
+  border: none;
+  border: 2px solid #000;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  background: linear-gradient(#fff, #777, #333);
+  width: 200px;
+  height: 75px;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 10px 1px #111; }
+
+.input {
+  border: none;
+  border: 2px solid #000;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  background: linear-gradient(#fff, #777, #333);
+  width: 200px;
+  height: 75px;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 10px 1px #111;
+  padding-left: 30px;
+  background: linear-gradient(#fff, #eee, #333); }
+  .input::-webkit-input-placeholder {
+    color: #000;
+    font-weight: bold; }
+
+.tile {
+  height: 300px;
+  width: 300px;
+  background-color: red;
+  border: 2px solid #000;
+  margin: 10px;
+  box-shadow: 10px 10px 10px 1px #111; }
+
+.options {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 .slider {
-  position: relative;
-  display: inline-block; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 154px; }
   .slider img {
-    margin-left: 48px;
-    width: 200px;
-    height: 200px;
-    border: 2px solid black; }
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px 1px #111; }
   .slider i {
-    color: #cc0000;
+    color: #fff;
     font-size: 50px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); }
+    margin-right: 10px; }
     .slider i:last-child {
       right: 0;
-      margin-left: 5px; }
+      margin-left: 10px; }
+
+.tile {
+  margin: 20px auto;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6); }
+  .tile img {
+    height: 300px;
+    width: 300px; }
+
+.caption {
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  width: 300px;
+  height: 75px;
+  margin: 0 auto;
+  padding: 10px 0;
+  margin-top: -20px; }
+
+.footer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center; }
+
+.small {
+  width: 300px;
+  height: 300px; }
+
+.long {
+  width: 300px;
+  height: 600px; }
+
+.wide {
+  width: 600px;
+  height: 300px; }
+
+.big {
+  width: 624px;
+  height: 624px; }
+
+.hero {
+  width: 948px;
+  height: 300px; }
+
+.longhero {
+  width: 300px;
+  height: 900px; }
