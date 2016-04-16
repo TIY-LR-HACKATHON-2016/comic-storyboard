@@ -36,9 +36,11 @@ namespace ComicStoryBook.Web.Controllers
         }
 
         // GET: Tiles/Create
-        public ActionResult Create()
+        public ActionResult Create(int comicbookid)
         {
-            return View();
+            var cb = db.ComicBooks.Find(comicbookid);
+            var model = new CreateTileVM() { ComicBookId = cb.Id };
+            return View(model);
         }
 
         // POST: Tiles/Create
@@ -46,16 +48,26 @@ namespace ComicStoryBook.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Image,TileType")] Tile tile)
+        public ActionResult Create(CreateTileVM model)
         {
             if (ModelState.IsValid)
             {
-                db.Tiles.Add(tile);
+                var cb = db.ComicBooks.Find(model.ComicBookId);
+
+                cb.Tiles.Add(new Tile()
+                {
+                    ComicBook = cb,
+                    Image = model.Image,
+                    Text = model.Text,
+                    TileType = model.TileType
+                }
+                    );
+
                 db.SaveChanges();
                 return RedirectToAction("Index", "ComicBooks");
             }
 
-            return View(tile);
+            return View(model);
         }
 
         // GET: Tiles/Edit/5

@@ -58,7 +58,7 @@ namespace ComicStoryBook.Web.Controllers
                 db.ComicBooks.Add(comicBook);
                 db.SaveChanges();
                // return RedirectToAction("Index");
-                return RedirectToAction("Index", "Tiles");
+                return RedirectToAction("Create", "Tiles", new { comicbookid = comicBook.Id});
             }
 
             return View(comicBook);
