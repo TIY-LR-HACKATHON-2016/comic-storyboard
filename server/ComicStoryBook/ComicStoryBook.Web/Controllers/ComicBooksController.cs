@@ -18,11 +18,11 @@ namespace ComicStoryBook.Web.Controllers
         public ActionResult Index()
         {
 
-            //var model =
-            //  db.ComicBooks//.Where(x => x.Id == 1)
-            //      .Select(cb => new {Foo = cb.Name, TileCount = cb.Tiles.Count(), Bar = cb.Id});
-            //return Json(model,JsonRequestBehavior.AllowGet);
-            return View(db.ComicBooks.ToList());
+            var model =
+            db.ComicBooks//.Where(x => x.Id == 1)
+               .Select(cb => new {Foo = cb.Name, TileCount = cb.Tiles.Count(), Bar = cb.Id});
+            return Json(model,JsonRequestBehavior.AllowGet);
+            //return View(db.ComicBooks.ToList());
         }
 
         // GET: ComicBooks/Details/5

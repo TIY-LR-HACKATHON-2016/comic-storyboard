@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComicBook.cs" />
+    <Compile Include="Models\ComicBookVM.cs" />
     <Compile Include="Models\CreateTileVM.cs" />
     <Compile Include="Models\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

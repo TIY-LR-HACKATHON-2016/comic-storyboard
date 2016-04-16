@@ -32,7 +32,7 @@ namespace ComicStoryBook.Web.Migrations
 
             if (!context.ComicBooks.Any())
             {
-                var books = Builder<ComicBook>.CreateListOfSize(4)
+                var books = Builder<ComicBook>.CreateListOfSize(8)
                     .All()
                     .With(cb => cb.Name = "Adventures of " + Faker.NameFaker.Name())
                     .With(cb => cb.Tiles = Builder<Tile>.CreateListOfSize(Faker.NumberFaker.Number(3, 10)).All()
