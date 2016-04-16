@@ -1,1 +1,15 @@
-Tile View
+<div class="tile">
+  <img class="image" src="http://www.placecage.com/200/200"/>
+  <caption>Pic of cage</caption>
+</div>
+
+  <h1>Options</h1>
+  <input type="text" placeholder="" ng-model="tileCtrl.name">
+
+
+<div>
+  <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
+  <img src="{{ tileCtrl.carousel[tileCtrl.carouselImage] }}" >
+  <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
+
+</div>
