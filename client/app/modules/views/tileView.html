@@ -6,7 +6,7 @@
 
       <div class="slider">
         <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
-        <img src="{{ tileCtrl.carousel[tileCtrl.carouselImage] }}">
+        <img src="{{ tileCtrl.carousel[tileCtrl.carouselCategory][tileCtrl.carouselImage] }}">
         <i class="fa fa-arrow-circle-right" ng-click="tileCtrl.nextImage()" aria-hidden="true"></i>
       </div>
     </div>
