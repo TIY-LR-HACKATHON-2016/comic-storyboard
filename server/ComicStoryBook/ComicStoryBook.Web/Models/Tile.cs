@@ -16,6 +16,6 @@
         Wide = 3,
         Big = 4,
         Hero = 5,
-        HeroLong = 6
+        
     }
 }
