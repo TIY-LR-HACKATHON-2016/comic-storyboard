@@ -1,4 +1,5 @@
 using ComicStoryBook.Web.Models;
+using FizzWare.NBuilder;
 
 namespace ComicStoryBook.Web.Migrations
 {
@@ -31,7 +32,19 @@ namespace ComicStoryBook.Web.Migrations
 
             if (!context.ComicBooks.Any())
             {
-                var newbook = new ComicBook() {Name = "Adventures of Naked Capt. America"};
+                var books = Builder<ComicBook>.CreateListOfSize(4)
+                    .All()
+                    .With(cb => cb.Name = "Adventures of " + Faker.NameFaker.Name())
+                    .With(cb => cb.Tiles = Builder<Tile>.CreateListOfSize(Faker.NumberFaker.Number(3, 10)).All()
+                        .With(x => x.ComicBook = cb)
+                        .With(x => x.Text = Faker.TextFaker.Sentence())
+                        .With(x => x.TileType = Faker.EnumFaker.SelectFrom<TileType>())
+                        .With(x => x.Image = "http://i.imgur.com/9E8Bypx.jpg")
+                        .Build())
+                    .Build();
+                context.ComicBooks.AddRange(books);
+
+                context.SaveChanges();
             }
         }
     }

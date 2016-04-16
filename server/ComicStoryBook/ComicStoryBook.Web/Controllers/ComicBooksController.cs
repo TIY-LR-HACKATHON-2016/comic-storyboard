@@ -19,7 +19,7 @@ namespace ComicStoryBook.Web.Controllers
         {
 
             var model =
-                db.ComicBooks.Where(x => x.Id == 1)
+                db.ComicBooks//.Where(x => x.Id == 1)
                     .Select(cb => new {Foo = cb.Name, TileCount = cb.Tiles.Count(), Bar = cb.Id});
             return Json(model,JsonRequestBehavior.AllowGet);
         }
