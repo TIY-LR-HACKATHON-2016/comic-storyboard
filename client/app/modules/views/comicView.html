@@ -18,9 +18,9 @@
   <div class="tiles">
     <div class="small tile" ng-repeat="tile in comicCtrl.tiles">
       <img ng-src="{{ tile.img }}">
-      <input type="submit" value="Edit" class="button">
-      <input type="submit" value="Delete" class="button">
-      <div class="cover" ng-click="comicCtrl.showButtons(tile)"></div>
+      <input type="submit" value="Edit" class="button" ui-sref="tile({ id: tile.id })">
+      <input type="submit" value="Delete" class="button" ng-click="comicCtrl.deleteTile(tile)">
+      <div class="cover"></div>
     </div>
   </div>
 </div>

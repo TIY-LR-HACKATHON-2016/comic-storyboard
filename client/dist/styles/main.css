@@ -38,6 +38,7 @@ body {
   height: 75px;
   margin: 0 10px;
   padding: 10px;
+  cursor: pointer;
   box-shadow: 10px 10px 10px 1px #111; }
 
 .input {
@@ -50,6 +51,8 @@ body {
   height: 75px;
   margin: 0 10px;
   padding: 10px;
+  cursor: pointer;
+  cursor: auto;
   padding-left: 30px;
   background: linear-gradient(#fff, #eee, #333); }
   .input::-webkit-input-placeholder {
@@ -70,16 +73,15 @@ body {
   .title--name {
     width: 1000px; }
   .title--submit {
-    background: linear-gradient(#f00, #700, #300); }
-
-.buttons {
-  margin-left: -10px; }
-  .buttons--submit {
     background: linear-gradient(#f00, #700, #300);
     color: #fff;
     box-shadow: 10px 10px 10px 1px #111; }
+
+.buttons {
+  margin-left: -10px; }
   .buttons--title {
     background: linear-gradient(#f00, #700, #300);
+    color: #fff;
     width: inherit; }
 
 .buttons {
@@ -109,6 +111,17 @@ body {
       position: absolute;
       top: 0;
       left: 0; }
+    .tiles .tile:hover .cover {
+      opacity: 0;
+      transition: 1s; }
+    .tiles .tile .button {
+      z-index: 5;
+      margin-bottom: 10px;
+      opacity: 0;
+      transition: 1s; }
+    .tiles .tile:hover .button {
+      opacity: 100;
+      transition: 1s; }
     .tiles .tile .cover {
       position: absolute;
       top: 0;
@@ -118,12 +131,6 @@ body {
       height: 300px;
       width: 300px;
       transition: 1s; }
-      .tiles .tile .cover:hover {
-        opacity: 0;
-        transition: 1s; }
-    .tiles .tile .button {
-      z-index: 5;
-      margin-bottom: 10px; }
 
 .footer {
   width: 200px;

@@ -6,16 +6,19 @@ class ComicController {
     this.show = false;
     this.tiles = [
       {
+        id: '3452345',
         box: 'small',
         img: 'http://www.placecage.com/gif/300/300',
         caption: 'words here.  check it out'
       },
       {
+        id: 'coolStuff',
         box: 'small',
         img: 'http://www.placecage.com/300/300',
         caption: "here's a pic of nic cage"
       },
       {
+        id: 'checkItOut',
         box: 'small',
         img: 'http://www.placecage.com/c/300/300',
         caption: "here's a pic of nic cage"
@@ -33,11 +36,6 @@ class ComicController {
         // this.tiles = response.data;
         console.log(this.tiles);
       });
-  }
-
-  showButtons(tile) {
-    console.log("trying to show!");
-    this.show = !this.show;
   }
 
   newComic() {
@@ -70,6 +68,16 @@ class ComicController {
       .then((response) =>{
         console.log(response);
       })
+  }
+
+  deleteTile(tile) {
+    this.tiles.splice(this.tiles.indexOf(tile), 1);
+
+    this._$http
+      .delete(`http://tiycomicbook.azurewebsites.net/comicbooks/index`)
+      .then((response) => {
+        console.log(response);
+      });
   }
 }
 

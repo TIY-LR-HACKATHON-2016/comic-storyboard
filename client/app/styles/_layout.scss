@@ -22,6 +22,7 @@ body {
 
 .input {
   @include button;
+  cursor: auto;
   padding-left: 30px;
   background: linear-gradient(#fff, #eee, #333);
 
