@@ -18,4 +18,6 @@ public class ComicStoryBookdbWebContext : DbContext
     }
 
     public System.Data.Entity.DbSet<ComicStoryBook.Web.Models.ComicBook> ComicBooks { get; set; }
+
+    public System.Data.Entity.DbSet<ComicStoryBook.Web.Models.Tile> Tiles { get; set; }
 }
