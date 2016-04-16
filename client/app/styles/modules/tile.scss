@@ -1,0 +1,39 @@
+.caption {
+
+  font-family: Verdana;
+  color: #cc0000;
+  text-shadow: 3px 3px gray;
+
+  h1 {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  input {
+    border: 2px solid gray;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    padding: 5px 5px 5px 5px;
+
+  }
+}
+.slider {
+  position: relative;
+
+  img {
+    margin-left: 48px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+  }
+  i {
+    color: #cc0000;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:last-child {
+      margin-left: 5px;
+    }
+  }
+}

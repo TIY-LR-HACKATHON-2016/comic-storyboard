@@ -3,9 +3,9 @@ class TileController {
     this._$http = $http;
 
     this.carousel = [
-      'http://www.placecage.com/100/200',
-      'http://www.placecage.com/c/100/200',
-      'http://www.placecage.com/200/200'];
+      'http://www.placecage.com/200/200',
+      'http://www.placecage.com/c/200/200',
+      'http://www.placecage.com/gif/200/200'];
     this.carouselImage = 0;
 
     this.getData();
