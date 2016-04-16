@@ -3,6 +3,7 @@
   font-family: Verdana;
   color: #cc0000;
   text-shadow: 3px 3px gray;
+  display: inline-block;
 
   h1 {
     display: inline-block;
@@ -18,6 +19,7 @@
 }
 .slider {
   position: relative;
+  display: inline-block;
 
   img {
     margin-left: 48px;
@@ -33,6 +35,7 @@
     transform: translateY(-50%);
 
     &:last-child {
+      right: 0;
       margin-left: 5px;
     }
   }

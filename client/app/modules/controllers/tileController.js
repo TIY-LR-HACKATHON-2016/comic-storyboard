@@ -13,8 +13,8 @@ class TileController {
   }
   getData() {
     this._$http
-      .get(``)
-      .then((respnse) => {
+      .get(`http://tiycomicbook.azurewebsites.net/comicbooks/index`)
+      .then((response) => {
         console.log(response);
       });
   }
