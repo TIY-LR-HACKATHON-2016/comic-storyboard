@@ -52,7 +52,7 @@ namespace ComicStoryBook.Web.Controllers
             {
                 db.Tiles.Add(tile);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ComicBooks");
             }
 
             return View(tile);
