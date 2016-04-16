@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web;
 
 namespace ComicStoryBook.Web.Models
 {
-    public class ComicBookTile
+    public class Tile
     {
         public int Id { get; set; }
         public string Text { get; set; }
         public string Image { get; set; }
-        
-        
-            
-        }
+        public string TileType { get; set; }
+
+
     }
+
+    public enum TileType
+    {
+    Small=1,
+    Long,
+    Wide,
+    Big,
+    Hero,
+    HeroLong,
+
+    };
 }
