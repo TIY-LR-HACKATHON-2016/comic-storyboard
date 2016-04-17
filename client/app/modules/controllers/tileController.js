@@ -1,8 +1,11 @@
 class TileController {
-  constructor($http, $state) {
+  constructor($http, $state, $stateParams) {
+    this.id = $stateParams.id;
     this._$http = $http;
     this._$state = $state;
     this.input = "";
+    this.carouselCategory = 0;
+    this.carouselImage = 0;
 
     this.carousel = [
       [`http://vignette1.wikia.nocookie.net/p__/images/1/1a/Hong-kong-phooey.jpg/revision/latest?cb=20120115140257&path-prefix=protagonist`,
@@ -220,26 +223,135 @@ class TileController {
         `http://www.bustatoons.com/blog_images/blog_bite_02.jpg`,
 
         `https://nerdymom61023.files.wordpress.com/2014/02/tt-heman-and-teela.jpg`,
+      ],
+      [`https://i.ytimg.com/vi/xXvBkwihOE8/hqdefault.jpg`,
 
+        `https://s-media-cache-ak0.pinimg.com/236x/ee/0c/f5/ee0cf500d1b79048cae201014fb846e9.jpg`,
 
+        `https://i.ytimg.com/vi/OsdPDbh0RYE/hqdefault.jpg`,
+
+        `https://i.ytimg.com/vi/5r9vdqAFCY4/hqdefault.jpg`,
+
+        `http://img.veehd.com/1984368_l2.jpg`,
+
+        `http://www.cartoonsonnet.com/pink-arcade.jpg`,
+
+        `http://www.cartoonsonnet.com/pink-arcade.jpg`,
+
+        `https://i.ytimg.com/vi/m-6ir-gFpbA/hqdefault.jpg`,
+
+        `https://i.ytimg.com/vi/bZsqdTrr1eM/hqdefault.jpg`,
+
+        `https://i.ytimg.com/vi/16YG9qZQIJE/hqdefault.jpg`,
+
+        `https://i.ytimg.com/vi/-dh4fUi-pds/hqdefault.jpg`,
+
+        `http://s1.dmcdn.net/E7hhj/1280x720-rjj.jpg`,
+      ],
+      [
+        `http://vignette1.wikia.nocookie.net/thundercats/images/4/4a/Lionowronghand.jpg/revision/latest?cb=20110902124831`,
+
+        `http://vignette4.wikia.nocookie.net/thundercats/images/1/18/Vlcsnap-2014-03-12-22h15m32s140.jpg/revision/latest?cb=20140313043108`,
+
+        `http://vignette2.wikia.nocookie.net/thundercats/images/8/80/Cheetara.jpg/revision/20111126090637`,
+
+        `http://vignette2.wikia.nocookie.net/thundercatslair/images/8/80/Cheetara.jpg/revision/latest/scale-to-width-down/290?cb=20140627151308`,
+
+        `https://upload.wikimedia.org/wikipedia/en/b/bc/Screenshot_Snarf.jpg`,
+
+        `http://vignette3.wikia.nocookie.net/thundercatslair/images/b/b2/Snarf.jpg/revision/latest/scale-to-width-down/290?cb=20140627151310`,
+
+        `http://www.geocities.ws/lady1venus10/panthro4.jpg`,
+
+        `http://media.boingboing.net/wp-content/uploads/2015/06/2525087-thundercats05.jpg`,
+
+        `http://vignette3.wikia.nocookie.net/thundercatslair/images/1/1c/Tygra.jpg/revision/latest?cb=20140627151309`,
+
+        `http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/char_66827.jpg`,
+
+        `http://grimbor.isperilo.us/images12/ThundercatsSeasonTwo01-ThunderCatsHoPart2-24.JPG`,
+      ],
+      [`http://images2.fanpop.com/images/photos/5500000/Fred-and-Wlima-Flintstone-the-flintstones-5540906-445-472.jpg`,
+
+        `http://img.timeinc.net/time/photoessays/2008/10_cars/flintstones.jpg`,
+
+        `https://images8.alphacoders.com/430/430669.jpg`,
+
+        `http://orig07.deviantart.net/0a76/f/2015/206/3/1/the_flintstones_n_wwe_stone_age_smackdown_wilma_by_neverb4-d92s442.png`,
+
+        `https://blog.etsy.com/en/files/2010/09/Wilma_cactus.jpg`,
+
+        `http://img.sharetv.com/shows/episodes/standard/201799.jpg`,
+
+        `http://content.internetvideoarchive.com/content/photos/5366/22540625_.jpg`,
+
+        `http://vignette4.wikia.nocookie.net/hanna-barbera/images/8/80/Vlcsnap-2015-07-27-03h41m25s479.png/revision/latest?cb=20150727084336`,
+
+        `http://images2.fanpop.com/images/photos/5500000/Bamm-Bamm-Rubble-the-flintstones-5539944-400-287.jpg`,
+
+        `http://www.quizz.biz/uploads/quizz/161120/1_a9CFM.jpg`,
+
+        `http://4.bp.blogspot.com/-ycoWE_BMbkU/VR7UJYD-c5I/AAAAAAAAB1U/BFq5V05y1NQ/s1600/flintstones_L23.jpg`,
+      ],
+      [
+        `http://www.tatteredcover.com/sites/tatteredcover.com/files/capt_underpants.jpg`,
+
+        `http://vignette3.wikia.nocookie.net/p__/images/0/09/Underpants.png/revision/latest?cb=20120727092134&path-prefix=protagonist`,
+
+        `http://i1.ytimg.com/vi/HzfwAAHt4wY/hqdefault.jpg`,
+
+        `http://i.kinja-img.com/gawker-media/image/upload/s--sr6id8FR--/18paughr7rkcgjpg.jpg`
+      ],
+      [`http://static4.comicvine.com/uploads/scale_small/11/111746/3053717-7368626610-jabbe.jpg`,
+
+        `http://www.anthonynotes.com/wp-content/uploads/2015/02/jabberjaw.jpg`,
+
+        `http://www.cartoonscrapbook.com/02pics/laffalympics01.jpg`
+      ],
+      [
+        `http://vignette3.wikia.nocookie.net/epic-rap-battles-of-fictional-culture/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20160127021912`,
+
+        `http://vignette3.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926`,
+
+        `http://static6.comicvine.com/uploads/original/5/57715/1937888-johnny_bravo_001.jpg`,
+
+        `http://assets1.ignimgs.com/2016/02/05/johnnylistjpg-0d7b8a.jpg`,
+
+        `http://www.zastavki.com/pictures/originals/2013/Cartoons_Johnny_Bravo_and_his_mother_051765_.jpg`,
+
+        `http://www.kinomania.ru/images/frames/304738.jpg`,
+      ],
+      [`http://content.randomenthusiasm.com/Yf7Cp7JyT.png`,
+
+        `http://www.dvdizzy.com/images/t-v/tick1-22.jpg`,
+
+        `http://www.smashinglists.com/wp-content/uploads/2012/08/The-Tick-Top-Ten-Animated-TV-Series_thumb.jpg`,
+
+        `http://i55.tinypic.com/2e0tgfb.jpg`,
+
+        `https://comiclists.files.wordpress.com/2012/10/animal_arthur.jpg`,
+
+        `http://animatedviews.com/wp-content/uploads/2006/12/tick5.jpg`,
+
+        `https://s-media-cache-ak0.pinimg.com/236x/10/71/f2/1071f25c482aabedfbb37608bfdcd3ea.jpg`,
+      ],
+      [`http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eed62293217c8/thumbnail_6221607127373002759.jpg`,
+
+        `http://www.chud.com/articles/content_images/117/squidbillies2.JPG`,
+
+        `http://geekadelphia.com/wp-content/uploads/2012/08/Snapz-Pro-XScreenSnapz001.jpg`,
+
+        `http://vignette2.wikia.nocookie.net/squidbillies/images/7/77/Lil.jpg/revision/latest?cb=20100303060951`,
+
+        `http://i.cdn.turner.com/adultswim/big/video/episode-thumbs-16x9/squidbillies_cc_603_pt1-05.jpg`,
+
+        `http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eed62293217c8/thumbnail_6390106704091126433.jpg`,
+
+        `http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eed62293217c8/thumbnail_7789786193802320356.jpg`,
+
+        `http://ia.media-imdb.com/images/M/MV5BMjA5MzIxMDUwNV5BMl5BanBnXkFtZTgwMjM4MDU1MjE@._V1_UY268_CR87,0,182,268_AL_.jpg`,
       ]
-
-
-
     ];
-
-    this.carouselCategory = 0;
-    this.carouselImage = 0;
-
-    this.getData();
-
-  }
-  getData() {
-    this._$http
-      .get(`http://tiycomicbook.azurewebsites.net/comicbooks/index`)
-      .then((response) => {
-        console.log(response);
-      });
   }
 
   previousImage() {
@@ -270,8 +382,9 @@ class TileController {
     this._$state.go('index');
 
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbooks/index`, {
-        box: 'small',
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/edittile/${this.id}`, {
+        comicbookid: this.id,
+        TileType: 'small',
         img: this.carousel[this.carouselCategory][this.carouselImage],
         text: this.caption
       })
