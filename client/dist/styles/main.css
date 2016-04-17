@@ -115,13 +115,17 @@ body {
   align-items: flex-start;
   margin-left: -10px;
   margin-right: -10px;
-  transition: 1s; }
+  transition: 1s;
+  text-align: justify;
+  color: #eee;
+  font-size: 2rem; }
   .tiles .tile {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; }
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px; }
     .tiles .tile img {
       width: 300px;
       height: 300px; }
@@ -150,12 +154,6 @@ body {
       height: 300px;
       width: 300px;
       transition: 1s; }
-    .tiles .tile .caption {
-      width: 95%;
-      padding: 10px;
-      text-align: justify;
-      color: #eee;
-      font-size: 2rem; }
     .tiles .tile .darkMode {
       opacity: 0;
       transition: 1s; }
@@ -169,21 +167,22 @@ body {
   transition: 1s; }
 
 .footer {
-  width: 250px;
-  margin: 20px auto;
-  clear: both; }
+  margin: 20px auto; }
   .footer .button {
-    margin: 0;
     width: inherit;
     transition: 1s; }
 
-.options {
-  height: 200px;
+.header-flex {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .options .input {
-    width: 500px; }
+  .header-flex .options {
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .header-flex .options .input {
+      width: 500px; }
 
 .select {
   background: linear-gradient(#f00, #700, #300); }
@@ -244,12 +243,17 @@ body {
       margin-left: 10px; }
 
 .tile {
-  margin: 20px auto;
-  font-size: 1.5rem;
-  text-align: center; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px auto;
+  color: #fff;
+  font-size: 1.5rem; }
   .tile img {
-    height: 300px;
-    width: 300px; }
+    width: 300px;
+    height: 300px; }
 
 .caption {
   font-size: 1.5rem;
@@ -266,11 +270,32 @@ body {
   margin-top: -20px;
   box-shadow: 10px 10px 10px 1px #111; }
 
-.footer {
-  margin: 20px 0;
+.tileFooter {
+  width: 280px;
+  margin: 20px auto;
   display: flex;
   justify-content: center; }
+  .tileFooter .button {
+    margin: 0 10px; }
+
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 1.5rem; }
+  .comics .button {
+    margin: 10px 0;
+    color: #fff;
+    min-width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#f00, #700, #300); }
+    .comics .button:hover {
+      background: linear-gradient(#a00, #f00, #700); }
 
 .small {
   width: 300px;
-  min-height: 300px; }
+  min-height: 375px; }

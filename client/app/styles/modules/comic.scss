@@ -57,13 +57,17 @@
   margin-left: -10px;
   margin-right: -10px;
   transition: 1s;
+  text-align: justify;
+  color: #eee;
+  font-size: 2rem;
 
   .tile {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    margin: 10px;
 
     img {
       width: 300px;
@@ -105,14 +109,6 @@
       transition: 1s;
     }
 
-    .caption {
-      width: 95%;
-      padding: 10px;
-      text-align: justify;
-      color: #eee;
-      font-size: 2rem;
-    }
-
     .darkMode {
       opacity: 0;
       transition: 1s;
@@ -134,12 +130,9 @@
 }
 
 .footer {
-  width: 250px;
   margin: 20px auto;
-  clear: both;
 
   .button {
-    margin: 0;
     width: inherit;
     transition: 1s;
   }

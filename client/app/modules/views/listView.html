@@ -11,8 +11,8 @@
   </div>
 </div>
 
-<ul>
+<ul class="container comics">
   <li ng-repeat="comic in listCtrl.comics">
-    <a ui-sref="comic({ comicId: comic.ComicBookId })">{{ comic.ComicBookName }}</a>
+    <button class="button" ui-sref="comic({ id: comic.ComicBookId })">{{ comic.ComicBookName }}</a>
   </li>
 </ul>

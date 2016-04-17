@@ -15,8 +15,6 @@ class ListController {
       .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/index`)
       .then((response) => {
         console.log(response);
-        // this.name = response.data[4].ComicBookName;
-        // this.tiles = response.data.TileCount;
         this.comics = response.data;
       });
   }

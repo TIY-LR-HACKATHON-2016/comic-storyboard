@@ -1,11 +1,13 @@
 class ComicController {
   constructor($http, $stateParams) {
+    console.log($stateParams);
     this._$http = $http;
     this.input = "";
     this.name = "";
-    this.id = $stateParams.comicId
+    this.id = $stateParams.id;
     this.darkMode = false;
     this.comicId;
+
     this.tiles = [];
     this.getData();
   }
@@ -39,14 +41,23 @@ class ComicController {
       })
       .then((response) => {
         this.tiles.push(response.data);
-        console.log(response);
+        console.log(response.data);
       });
+  }
+
+  findTileId(tile) {
+    if (tile.Id !== undefined) {
+      return tile.Id;
+    }
+    else {
+      return tile.TileId;
+    }
   }
 
   deleteTile(tile) {
     console.log(tile);
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/Delete/${tile.Id}`)
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/DeleteTile/${this.findTileId(tile)}`)
       .then((response) => {
         this.tiles.splice(this.tiles.indexOf(tile), 1);
       });

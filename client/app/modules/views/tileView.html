@@ -1,11 +1,13 @@
-<form ng-submit="tileCtrl.captionTile()">
-  <div class="header">
-    <div class="container">
+<div class="header">
+  <div class="header-flex container">
+    <form ng-submit="tileCtrl.captionTile()">
       <div class="options">
         <input class="input" type="text" placeholder="Caption" ng-model="tileCtrl.input">
         <input class="button select" type="submit">
+      </div>
+    </form>
 
-        <div class="carousel">
+    <div class="carousel">
           <div class="slider">
             <i class="fa fa-arrow-circle-left" ng-click="tileCtrl.previousImage()" aria-hidden="true"></i>
             <div class="imgContainer">
@@ -37,26 +39,17 @@
             <option class="button" value="17">The Tick</option>
             <option class="button" value="18">Squidbillies</option>
 
-
           </select>
         </div>
-
-      </div>
     </div>
   </div>
-</form>
 
-<div class="tile">
+<div class="small tile">
   <img class="image" ng-src="{{ tileCtrl.image }}"/>
+  {{ tileCtrl.caption }}
 </div>
 
-<div class="caption">
-  <caption>{{ tileCtrl.caption }}</caption>
-</div>
-
-
-<div class="footer">
-
-  <input class="button" type="submit" value="Go Back" ui-sref="index">
+<div class="tileFooter">
+  <input class="button" type="submit" value="Go Back" ui-sref="comic({ id: tileCtrl.comicId })">
   <input class="button select" type="submit" value="Save" ng-click="tileCtrl.saveData()">
 </div>

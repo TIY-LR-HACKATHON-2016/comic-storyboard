@@ -6,12 +6,12 @@ function config($stateProvider) {
       template: require('./views/listView.html')
     })
     .state('comic', {
-      url: '/:comicId',
+      url: '/comics/:id',
       controller: 'ComicController as comicCtrl',
       template: require('./views/comicView.html')
     })
     .state('tile', {
-      url: '/:comicId/tiles',
+      url: '/tiles/:id',
       controller: 'TileController as tileCtrl',
       template: require('./views/tileView.html')
     });

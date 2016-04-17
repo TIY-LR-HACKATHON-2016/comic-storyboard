@@ -1,0 +1,22 @@
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 1.5rem;
+
+  .button {
+    margin: 10px 0;
+    color: #fff;
+    min-width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#f00, #700, #300);
+
+    &:hover {
+      background: linear-gradient(#a00, #f00, #700);
+    }
+  }
+}
