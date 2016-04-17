@@ -126,6 +126,10 @@ namespace ComicStoryBook.Web.Controllers
         public ActionResult DeleteComicbook(int? id)
         {
             ComicBook comicBook = db.ComicBooks.Find(id);
+            if (comicBook == null)
+            {
+                return HttpNotFound("Unable to find ComicBook");
+            }
             db.ComicBooks.Remove(comicBook);
             db.SaveChanges();
             return Content("Done!");
