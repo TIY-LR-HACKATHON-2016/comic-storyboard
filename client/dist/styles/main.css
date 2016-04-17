@@ -166,9 +166,10 @@ body {
   transform: translateY(-200px);
   transition: 1s; }
 
-.footer {
+.comicFooter {
+  width: 250px;
   margin: 20px auto; }
-  .footer .button {
+  .comicFooter .button {
     width: inherit;
     transition: 1s; }
 
