@@ -71,7 +71,7 @@ namespace ComicStoryBook.Web.Controllers
                 return HttpNotFound();
             }
 
-            var tile = db.Tiles.Find(id);
+            var tile = db.Tiles.Include("ComicBook").FirstOrDefault(x=>x.ComicBook.Id == id);
             tile.Text = text;
             tile.Image = image;
             tile.TileType = TileType.Small;

@@ -147,6 +147,10 @@
     <Compile Include="Migrations\201604160420095_InitialTables.Designer.cs">
       <DependentUpon>201604160420095_InitialTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604171817168_TileCascadeDelet.cs" />
+    <Compile Include="Migrations\201604171817168_TileCascadeDelet.Designer.cs">
+      <DependentUpon>201604171817168_TileCascadeDelet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComicBook.cs" />
     <Compile Include="Models\ComicBookVM.cs" />
@@ -215,6 +219,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604160420095_InitialTables.resx">
       <DependentUpon>201604160420095_InitialTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604171817168_TileCascadeDelet.resx">
+      <DependentUpon>201604171817168_TileCascadeDelet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

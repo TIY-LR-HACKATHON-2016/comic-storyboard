@@ -1,4 +1,6 @@
-﻿namespace ComicStoryBook.Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ComicStoryBook.Web.Models
 {
     public class Tile
     {
@@ -6,6 +8,7 @@
         public string Text { get; set; }
         public string Image { get; set; }
         public TileType TileType { get; set; } = TileType.Small;
+        [Required]
         public virtual ComicBook ComicBook { get; set; }
     }
 
