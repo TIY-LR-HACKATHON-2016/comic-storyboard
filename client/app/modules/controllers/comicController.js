@@ -4,6 +4,8 @@ class ComicController {
     this.input = "";
     this.name = "";
     this.darkMode = false;
+    this.comicId;
+
     this.tiles = [
       {
         id: '3452345',
@@ -43,41 +45,35 @@ class ComicController {
 
     this._$http
       .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/create`, {
-        "Title": this.name
+        Title: this.input
       })
       .then((response) => {
         this.name = this.input;
-        console.log(response);
+        this.comicId = response.data.Id;
       });
   }
 
   newTile() {
-    this.tiles.push({
-      box: 'small',
-      img: '',
-      caption: "here's a pic of nic cage. check out this huge comment."
-    });
-
-    console.log(this.tiles);
 
     this._$http
       .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/createtile`, {
-        "TileType": 'small',
-        "Text": '',
-        "Image": ''
+        comicbookid: this.comicId,
+        TileType: 'small',
+        Text: '',
+        Image: ''
       })
       .then((response) =>{
+        this.tiles.push(response.data)
         console.log(response);
       });
   }
 
   deleteTile(tile) {
-    this.tiles.splice(this.tiles.indexOf(tile), 1);
-
+    console.log(tile);
     this._$http
-      .delete(`http://tiycomicbook.azurewebsites.net/comicbooks/index`)
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/Delete/${tile.Id}`)
       .then((response) => {
-        console.log(response);
+        this.tiles.splice(this.tiles.indexOf(tile), 1);
       });
   }
 
