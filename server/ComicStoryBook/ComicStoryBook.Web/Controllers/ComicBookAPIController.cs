@@ -113,7 +113,7 @@ namespace ComicStoryBook.Web.Controllers
 
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         public ActionResult DeleteTile(int? id)
         {
             Tile tile = db.Tiles.Find(id);
@@ -122,7 +122,7 @@ namespace ComicStoryBook.Web.Controllers
             return Content("Done!");
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         public ActionResult DeleteComicbook(int? id)
         {
             ComicBook comicBook = db.ComicBooks.Find(id);
