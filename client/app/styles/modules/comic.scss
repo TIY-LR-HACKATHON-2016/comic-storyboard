@@ -1,3 +1,7 @@
+.header {
+  transition: 1s;
+}
+
 .title {
   height: 200px;
   display: flex;
@@ -12,6 +16,10 @@
     background: linear-gradient(#f00, #700, #300);
     color: #fff;
     @include box-shadows;
+
+    &:hover {
+      background: linear-gradient(#a00, #f00, #700);
+    }
   }
 }
 
@@ -22,6 +30,10 @@
     background: linear-gradient(#f00, #700, #300);
     color: #fff;
     width: inherit;
+
+    &:hover {
+      background: linear-gradient(#fcc, #f00, #700);
+    }
   }
 }
 
@@ -41,8 +53,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   margin-left: -10px;
   margin-right: -10px;
+  transition: 1s;
 
   .tile {
     position: relative;
@@ -52,9 +66,8 @@
     align-items: center;
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
+      width: 300px;
+      height: 300px;
     }
 
     &:hover .cover {
@@ -63,15 +76,22 @@
     }
 
     .button {
+      position: absolute;
+      left: 47%;
+      top: 25%;
+      transform: translate(-50%, -50%);
       z-index: 5;
-      margin-bottom: 10px;
       opacity: 0;
       transition: 1s;
+
+      &:nth-child(2) {
+        top: 50%;
+      }
     }
 
     &:hover .button {
       opacity: 100;
-      transition: 1s;
+      transition: .5s;
     }
 
     .cover {
@@ -85,18 +105,42 @@
       transition: 1s;
     }
 
+    .caption {
+      width: 95%;
+      padding: 10px;
+      text-align: justify;
+      color: #eee;
+      font-size: 2rem;
+    }
+
+    .darkMode {
+      opacity: 0;
+      transition: 1s;
+    }
 
   }
 
 
 }
 
+.darkMode {
+  opacity: 0;
+  transition: 1s;
+}
+
+.moveUp {
+  transform: translateY(-200px);
+  transition: 1s;
+}
+
 .footer {
-  width: 200px;
+  width: 250px;
   margin: 20px auto;
   clear: both;
 
   .button {
     margin: 0;
+    width: inherit;
+    transition: 1s;
   }
 }

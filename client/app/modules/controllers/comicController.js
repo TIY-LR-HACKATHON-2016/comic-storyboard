@@ -3,7 +3,7 @@ class ComicController {
     this._$http = $http;
     this.input = "";
     this.name = "";
-    this.show = false;
+    this.darkMode = false;
     this.tiles = [
       {
         id: '3452345',
@@ -21,7 +21,7 @@ class ComicController {
         id: 'checkItOut',
         box: 'small',
         img: 'http://www.placecage.com/c/300/300',
-        caption: "here's a pic of nic cage"
+        caption: "here's another pic of nic cage. check out this huge comment."
       }
     ];
 
@@ -30,22 +30,23 @@ class ComicController {
 
   getData() {
     this._$http
-      .get(`http://tiycomicbook.azurewebsites.net/comicbooks/index`)
+      .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/index`)
       .then((response) => {
         console.log(response);
-        // this.tiles = response.data;
+        // this.name = response.data[4].ComicBookName;
+        // this.tiles = response.data.TileCount;
         console.log(this.tiles);
       });
   }
 
   newComic() {
-    this.name = this.input;
 
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbooks/index`, {
-        Name: this.name
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/create`, {
+        "Title": this.name
       })
       .then((response) => {
+        this.name = this.input;
         console.log(response);
       });
   }
@@ -54,20 +55,20 @@ class ComicController {
     this.tiles.push({
       box: 'small',
       img: '',
-      caption: "here's a pic of nic cage"
+      caption: "here's a pic of nic cage. check out this huge comment."
     });
 
     console.log(this.tiles);
 
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbooks/index`, {
-        TileType: 'small',
-        Text: '',
-        Image: ''
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/createtile`, {
+        "TileType": 'small',
+        "Text": '',
+        "Image": ''
       })
       .then((response) =>{
         console.log(response);
-      })
+      });
   }
 
   deleteTile(tile) {
@@ -78,6 +79,10 @@ class ComicController {
       .then((response) => {
         console.log(response);
       });
+  }
+
+  toggleDarkMode() {
+    this.darkMode = !this.darkMode;
   }
 }
 
