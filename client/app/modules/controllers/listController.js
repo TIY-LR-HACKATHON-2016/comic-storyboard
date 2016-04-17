@@ -1,5 +1,6 @@
 class ListController {
-  constructor($http) {
+  constructor($http, $state) {
+    this._$state = $state;
     this._$http = $http;
     this.input = "";
     this.name = "";
@@ -27,8 +28,10 @@ class ListController {
         Title: this.input
       })
       .then((response) => {
+        console.log(response);
         this.name = this.input;
         this.comicId = response.data.Id;
+        this._$state.go("comic", { comicId: this.comicId });
       });
   }
 

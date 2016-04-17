@@ -1,9 +1,5 @@
 <div class="header" ng-class="{ 'darkMode': comicCtrl.darkMode }">
   <div class="container">
-    <form class="title" ng-submit="comicCtrl.newComic()">
-      <input class="input title--name" type="text" placeholder="Comic Name" ng-model="comicCtrl.input" ng-hide="comicCtrl.name !== ''">
-      <input class="button title--submit" type="submit" ng-hide="comicCtrl.name !== ''">
-    </form>
     <div class="buttons">
       <input class="button buttons--new-tile" type="submit" value="New Tile" ng-click="comicCtrl.newTile()" ng-hide="comicCtrl.name === ''">
       <input class="button buttons--title" type="submit" value="{{ comicCtrl.name }}" ng-hide="comicCtrl.name === ''">
@@ -14,11 +10,11 @@
 <div class="container">
   <div class="tiles" ng-class="{ 'moveUp': comicCtrl.darkMode }">
     <div class="small tile" ng-repeat="tile in comicCtrl.tiles">
-      <img ng-src="{{ tile.img }}">
-      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ comicId: comicCtrl.comicId })">
+      <img ng-src="{{ tile.Image }}">
+      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ comicId: tile.TileId })">
       <input type="submit" value="Delete" class="button" ng-hide="comicCtrl.darkMode" ng-click="comicCtrl.deleteTile(tile)">
       <div class="cover" ng-class="{ 'darkMode': comicCtrl.darkMode }"></div>
-      <div class="caption">{{ tile.caption }}</div>
+      <div class="caption">{{ tile.Text }}</div>
     </div>
   </div>
 </div>

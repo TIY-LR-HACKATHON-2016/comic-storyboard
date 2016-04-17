@@ -35,9 +35,10 @@ body {
   font-size: 1.5rem;
   background: linear-gradient(#fff, #777, #333);
   width: 200px;
-  height: 75px;
+  min-height: 75px;
   margin: 0 10px;
   padding: 10px;
+  cursor: pointer;
   box-shadow: 10px 10px 10px 1px #111; }
   .button:hover {
     background: linear-gradient(#fff, #aaa, #777); }
@@ -49,9 +50,10 @@ body {
   font-size: 1.5rem;
   background: linear-gradient(#fff, #777, #333);
   width: 200px;
-  height: 75px;
+  min-height: 75px;
   margin: 0 10px;
   padding: 10px;
+  cursor: pointer;
   box-shadow: 10px 10px 10px 1px #111;
   padding-left: 30px;
   background: linear-gradient(#fff, #eee, #333); }
@@ -62,11 +64,118 @@ body {
     font-weight: bold; }
 
 .tile {
+  background-color: rgba(150, 0, 0, 0.75);
   height: 300px;
   width: 300px;
   border: 3px solid #000;
   margin: 10px;
   box-shadow: 10px 10px 10px 1px #111; }
+
+.header {
+  transition: 1s; }
+
+.title {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .title--name {
+    width: 1000px; }
+  .title--submit {
+    background: linear-gradient(#f00, #700, #300);
+    color: #fff;
+    box-shadow: 10px 10px 10px 1px #111; }
+    .title--submit:hover {
+      background: linear-gradient(#a00, #f00, #700); }
+
+.buttons {
+  margin-left: -10px; }
+  .buttons--title {
+    background: linear-gradient(#f00, #700, #300);
+    color: #fff;
+    width: inherit; }
+    .buttons--title:hover {
+      background: linear-gradient(#fcc, #f00, #700); }
+
+.buttons {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px; }
+
+.tiles {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: -10px;
+  margin-right: -10px;
+  transition: 1s; }
+  .tiles .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .tiles .tile img {
+      width: 300px;
+      height: 300px; }
+    .tiles .tile:hover .cover {
+      opacity: 0;
+      transition: 1s; }
+    .tiles .tile .button {
+      position: absolute;
+      left: 47%;
+      top: 25%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      opacity: 0;
+      transition: 1s; }
+      .tiles .tile .button:nth-child(2) {
+        top: 50%; }
+    .tiles .tile:hover .button {
+      opacity: 100;
+      transition: .5s; }
+    .tiles .tile .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #000;
+      opacity: .6;
+      height: 300px;
+      width: 300px;
+      transition: 1s; }
+    .tiles .tile .caption {
+      width: 95%;
+      padding: 10px;
+      text-align: justify;
+      color: #eee;
+      font-size: 2rem; }
+    .tiles .tile .darkMode {
+      opacity: 0;
+      transition: 1s; }
+
+.darkMode {
+  opacity: 0;
+  transition: 1s; }
+
+.moveUp {
+  transform: translateY(-200px);
+  transition: 1s; }
+
+.footer {
+  width: 250px;
+  margin: 20px auto;
+  clear: both; }
+  .footer .button {
+    margin: 0;
+    width: inherit;
+    transition: 1s; }
 
 .options {
   height: 200px;
@@ -164,24 +273,4 @@ body {
 
 .small {
   width: 300px;
-  height: 300px; }
-
-.long {
-  width: 300px;
-  height: 600px; }
-
-.wide {
-  width: 600px;
-  height: 300px; }
-
-.big {
-  width: 624px;
-  height: 624px; }
-
-.hero {
-  width: 948px;
-  height: 300px; }
-
-.longhero {
-  width: 300px;
-  height: 900px; }
+  min-height: 300px; }
