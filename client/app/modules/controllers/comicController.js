@@ -7,24 +7,6 @@ class ComicController {
     this.comicId;
 
     this.tiles = [
-      {
-        id: '3452345',
-        box: 'small',
-        img: 'http://www.placecage.com/gif/300/300',
-        caption: 'words here.  check it out'
-      },
-      {
-        id: 'coolStuff',
-        box: 'small',
-        img: 'http://www.placecage.com/300/300',
-        caption: "here's a pic of nic cage"
-      },
-      {
-        id: 'checkItOut',
-        box: 'small',
-        img: 'http://www.placecage.com/c/300/300',
-        caption: "here's another pic of nic cage. check out this huge comment."
-      }
     ];
 
     this.getData();
