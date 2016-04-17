@@ -11,7 +11,7 @@
   <div class="tiles" ng-class="{ 'moveUp': comicCtrl.darkMode }">
     <div class="small tile" ng-repeat="tile in comicCtrl.tiles">
       <img ng-src="{{ tile.Image }}">
-      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ comicId: tile.TileId })">
+      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ id: tile.TileId })">
       <input type="submit" value="Delete" class="button" ng-hide="comicCtrl.darkMode" ng-click="comicCtrl.deleteTile(tile)">
       <div class="cover" ng-class="{ 'darkMode': comicCtrl.darkMode }"></div>
       <div class="caption">{{ tile.Text }}</div>

@@ -117,7 +117,13 @@
 }
 
 .footer {
-  margin: 20px 0;
+  width: 280px;
+  margin: 20px auto;
   display: flex;
   justify-content: center;
+
+  .button {
+    margin: 0 10px;
+  }
+
 }

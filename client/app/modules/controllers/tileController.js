@@ -382,7 +382,7 @@ class TileController {
     this._$state.go('index');
 
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/edittile/${this.id}`, {
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/EditTile/${this.id}`, {
         comicbookid: this.id,
         TileType: 'small',
         img: this.carousel[this.carouselCategory][this.carouselImage],

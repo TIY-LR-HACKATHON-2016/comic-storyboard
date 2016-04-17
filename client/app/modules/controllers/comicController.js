@@ -3,7 +3,7 @@ class ComicController {
     this._$http = $http;
     this.input = "";
     this.name = "";
-    this.id = $stateParams.comicId
+    this.id = $stateParams.id
     this.darkMode = false;
     this.comicId;
 
