@@ -89,11 +89,44 @@ namespace ComicStoryBook.Web.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult EditComicbook(int? id, string name)
+        {
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var comicbook = db.ComicBooks.Find(id);
+            comicbook.Name = name;
+            db.SaveChanges();
+
+
+            var model = new
+            {
+                id = comicbook.Id,
+                name= comicbook.Name,
+                
+            };
+            return Json(model);
+
+        }
+
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteTile(int? id)
         {
             Tile tile = db.Tiles.Find(id);
             db.Tiles.Remove(tile);
+            db.SaveChanges();
+            return Content("Done!");
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteComicbook(int? id)
+        {
+            ComicBook comicBook = db.ComicBooks.Find(id);
+            db.ComicBooks.Remove(comicBook);
             db.SaveChanges();
             return Content("Done!");
         }
