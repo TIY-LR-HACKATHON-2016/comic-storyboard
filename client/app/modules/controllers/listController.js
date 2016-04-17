@@ -14,7 +14,7 @@ class ListController {
     this._$http
       .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/index`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.comics = response.data;
       });
   }
@@ -29,7 +29,7 @@ class ListController {
         console.log(response);
         this.name = this.input;
         this.comicId = response.data.Id;
-        this._$state.go("comic", { comicId: this.comicId });
+        this._$state.go("comic", { id: this.comicId });
       });
   }
 
