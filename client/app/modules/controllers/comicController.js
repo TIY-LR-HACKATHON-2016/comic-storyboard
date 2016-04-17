@@ -1,7 +1,7 @@
 class ComicController {
-  constructor($http, $stateParams) {
-    console.log($stateParams);
+  constructor($http, $stateParams, $state) {
     this._$http = $http;
+    this._$state = $state;
     this.input = "";
     this.name = "";
     this.id = $stateParams.id;
@@ -42,6 +42,16 @@ class ComicController {
       .then((response) => {
         this.tiles.push(response.data);
         console.log(response.data);
+      });
+  }
+
+  deleteComic() {
+    console.log("Deleting comic.");
+    this._$http
+      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/DeleteComicbook/${this.id}`)
+      .then((response) => {
+        console.log(response);
+        this._$state.go('index');
       });
   }
 
