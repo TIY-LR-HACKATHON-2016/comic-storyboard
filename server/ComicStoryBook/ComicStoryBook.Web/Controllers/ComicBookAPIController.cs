@@ -97,5 +97,15 @@ namespace ComicStoryBook.Web.Controllers
             db.SaveChanges();
             return Content("Done!");
         }
+
+
+        // GET: ComicBookAPI
+        public ActionResult Tiles(int comicbookid)
+        {
+            var model =
+                db.ComicBooks
+                    .Find(comicbookid).Tiles.Select(x => new {TileId = x.Id, x.Image, x.Text, x.TileType});
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
     }
 }
