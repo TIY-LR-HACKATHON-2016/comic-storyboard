@@ -140,5 +140,22 @@ namespace ComicStoryBook.Web.Controllers
                     .Find(comicbookid).Tiles.Select(x => new {TileId = x.Id, x.Image, x.Text, x.TileType});
             return Json(model, JsonRequestBehavior.AllowGet);
         }
+
+        // GET Tile Details
+        public ActionResult TileDetails(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Tile tile = db.Tiles.Find(id);
+            if (tile == null)
+            {
+                return HttpNotFound();
+            }
+
+            var model = new {tile.Id, tile.Image, tile.Text, tile.TileType, ComicBookId = tile.ComicBook.Id};
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
     }
 }

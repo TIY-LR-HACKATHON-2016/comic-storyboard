@@ -6,7 +6,7 @@
         public string Text { get; set; }
         public string Image { get; set; }
         public TileType TileType { get; set; } = TileType.Small;
-        public ComicBook ComicBook { get; set; }
+        public virtual ComicBook ComicBook { get; set; }
     }
 
     public enum TileType
