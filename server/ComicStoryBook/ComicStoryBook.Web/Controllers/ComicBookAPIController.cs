@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using ComicStoryBook.Web.Models;
 
@@ -14,7 +17,7 @@ namespace ComicStoryBook.Web.Controllers
         {
             var model =
                 db.ComicBooks
-                    .Select(cb => new { ComicBookName = cb.Name, TileCount = cb.Tiles.Count(), ComicBookId = cb.Id });
+                    .Select(cb => new { ComicBookName = cb.Name, TileCount = cb.Tiles.Count(), ComicBookId = cb.Id});
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
@@ -49,6 +52,31 @@ namespace ComicStoryBook.Web.Controllers
             db.SaveChanges();
 
             return Json(newTile);
+        }
+
+        [HttpPut]
+        public ActionResult EditTile(int? id)
+        {
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var tile = db.Tiles.Find(id);
+            db.Entry(tile).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return Json(tile);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteTile(int? id)
+        {
+            Tile tile = db.Tiles.Find(id);
+            db.Tiles.Remove(tile);
+            db.SaveChanges();
+            return Json("Index", JsonRequestBehavior.AllowGet);
         }
     }
 }
