@@ -48,7 +48,7 @@ namespace ComicStoryBook.Web.Controllers
                 TileType = TileType.Small,
                 Text = text
             };
-
+            book.Tiles.Add(newTile);
             db.SaveChanges();
 
             return Json(newTile);
