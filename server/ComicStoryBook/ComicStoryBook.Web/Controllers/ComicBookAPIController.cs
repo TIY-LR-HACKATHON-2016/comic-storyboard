@@ -51,7 +51,15 @@ namespace ComicStoryBook.Web.Controllers
             book.Tiles.Add(newTile);
             db.SaveChanges();
 
-            return Json(newTile);
+
+            var model = new 
+            {
+                Id = newTile.Id,
+                Image = newTile.Image,
+                TileType = newTile.TileType,
+                Text = newTile.Text
+            };
+            return Json(model);
         }
 
         [HttpPost]
@@ -69,7 +77,16 @@ namespace ComicStoryBook.Web.Controllers
             tile.TileType = TileType.Small;
             db.SaveChanges();
 
-            return Json(tile);
+
+            var model = new
+            {
+                Id = tile.Id,
+                Image = tile.Image,
+                TileType = tile.TileType,
+                Text = tile.Text
+            };
+            return Json(model);
+
         }
 
         [HttpPost, ActionName("Delete")]
