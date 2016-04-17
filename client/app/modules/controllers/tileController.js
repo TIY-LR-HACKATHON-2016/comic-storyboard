@@ -1,11 +1,13 @@
 class TileController {
   constructor($http, $state, $stateParams) {
     this.id = $stateParams.id;
+    console.log(this.id);
     this._$http = $http;
     this._$state = $state;
     this.input = "";
     this.carouselCategory = 0;
     this.carouselImage = 0;
+    this.getData();
 
     this.carousel = [
       [`http://vignette1.wikia.nocookie.net/p__/images/1/1a/Hong-kong-phooey.jpg/revision/latest?cb=20120115140257&path-prefix=protagonist`,
@@ -354,6 +356,19 @@ class TileController {
     ];
   }
 
+  getData() {
+    this._$http
+      .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/TileDetails/${this.id}`)
+      .then((response) => {
+        console.log(response);
+        this.tile = response.data;
+        console.log(this.tile);
+        this.caption = this.tile.Text;
+        this.image = this.tile.Image;
+        this.comicId = this.tile.ComicBookId;
+      });
+  }
+
   previousImage() {
     if (this.carouselImage === 0) {
       this.carouselImage = this.carousel[this.carouselCategory].length - 1;
@@ -379,17 +394,18 @@ class TileController {
   }
 
   saveData() {
-    this._$state.go('index');
 
     this._$http
       .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/EditTile/${this.id}`, {
-        comicbookid: this.id,
         TileType: 'small',
-        img: this.carousel[this.carouselCategory][this.carouselImage],
-        text: this.caption
+        Image: this.carousel[this.carouselCategory][this.carouselImage],
+        Text: this.caption
       })
       .then((response) => {
         console.log(response);
+        this._$state.go('comic', {
+          id: this.comicId
+        });
       });
   }
 }

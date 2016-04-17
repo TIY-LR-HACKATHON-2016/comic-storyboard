@@ -1,6 +1,7 @@
 <div class="header" ng-class="{ 'darkMode': comicCtrl.darkMode }">
   <div class="container">
     <div class="buttons">
+      <input class="button buttons--new-tile" type="submit" value="Home" ui-sref="index" ng-hide="comicCtrl.name === ''">
       <input class="button buttons--new-tile" type="submit" value="New Tile" ng-click="comicCtrl.newTile()" ng-hide="comicCtrl.name === ''">
       <input class="button buttons--title" type="submit" value="{{ comicCtrl.name }}" ng-hide="comicCtrl.name === ''">
     </div>
@@ -11,10 +12,10 @@
   <div class="tiles" ng-class="{ 'moveUp': comicCtrl.darkMode }">
     <div class="small tile" ng-repeat="tile in comicCtrl.tiles">
       <img ng-src="{{ tile.Image }}">
-      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ id: tile.TileId })">
+      <input type="submit" value="Edit" class="button" ng-hide="comicCtrl.darkMode" ui-sref="tile({ id: comicCtrl.findTileId(tile) })">
       <input type="submit" value="Delete" class="button" ng-hide="comicCtrl.darkMode" ng-click="comicCtrl.deleteTile(tile)">
       <div class="cover" ng-class="{ 'darkMode': comicCtrl.darkMode }"></div>
-      <div class="caption">{{ tile.Text }}</div>
+      {{ tile.Text }}
     </div>
   </div>
 </div>
