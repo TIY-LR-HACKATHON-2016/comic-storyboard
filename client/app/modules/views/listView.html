@@ -1,0 +1,18 @@
+<div class="header" ng-class="{ 'darkMode': listCtrl.darkMode }">
+  <div class="container">
+    <form class="title" ng-submit="listCtrl.newComic()">
+      <input class="input title--name" type="text" placeholder="Comic Name" ng-model="listCtrl.input" ng-hide="listCtrl.name !== ''">
+      <input class="button title--submit" type="submit" ng-hide="listCtrl.name !== ''">
+    </form>
+    <div class="buttons">
+      <input class="button buttons--new-tile" type="submit" value="New Tile" ng-click="listCtrl.newTile()" ng-hide="listCtrl.name === ''">
+      <input class="button buttons--title" type="submit" value="{{ listCtrl.name }}" ng-hide="listCtrl.name === ''">
+    </div>
+  </div>
+</div>
+
+<ul>
+  <li ng-repeat="comic in listCtrl.comics">
+    <a ui-sref="comic({ comicId: comic.ComicBookId })">{{ comic.ComicBookName }}</a>
+  </li>
+</ul>
