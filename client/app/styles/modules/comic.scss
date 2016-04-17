@@ -1,0 +1,146 @@
+.header {
+  transition: 1s;
+}
+
+.title {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--name {
+    width: 1000px;
+  }
+
+  &--submit {
+    background: linear-gradient(#f00, #700, #300);
+    color: #fff;
+    @include box-shadows;
+
+    &:hover {
+      background: linear-gradient(#a00, #f00, #700);
+    }
+  }
+}
+
+.buttons {
+  margin-left: -10px;
+
+  &--title {
+    background: linear-gradient(#f00, #700, #300);
+    color: #fff;
+    width: inherit;
+
+    &:hover {
+      background: linear-gradient(#fcc, #f00, #700);
+    }
+  }
+}
+
+.buttons {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.tiles {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: -10px;
+  margin-right: -10px;
+  transition: 1s;
+
+  .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+
+    &:hover .cover {
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .button {
+      position: absolute;
+      left: 47%;
+      top: 25%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      opacity: 0;
+      transition: 1s;
+
+      &:nth-child(2) {
+        top: 50%;
+      }
+    }
+
+    &:hover .button {
+      opacity: 100;
+      transition: .5s;
+    }
+
+    .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #000;
+      opacity: .6;
+      height: 300px;
+      width: 300px;
+      transition: 1s;
+    }
+
+    .caption {
+      width: 95%;
+      padding: 10px;
+      text-align: justify;
+      color: #eee;
+      font-size: 2rem;
+    }
+
+    .darkMode {
+      opacity: 0;
+      transition: 1s;
+    }
+
+  }
+
+
+}
+
+.darkMode {
+  opacity: 0;
+  transition: 1s;
+}
+
+.moveUp {
+  transform: translateY(-200px);
+  transition: 1s;
+}
+
+.footer {
+  width: 250px;
+  margin: 20px auto;
+  clear: both;
+
+  .button {
+    margin: 0;
+    width: inherit;
+    transition: 1s;
+  }
+}
