@@ -1,14 +1,12 @@
 class ComicController {
-  constructor($http) {
+  constructor($http, $stateParams) {
     this._$http = $http;
     this.input = "";
     this.name = "";
+    this.id = $stateParams.comicId
     this.darkMode = false;
     this.comicId;
-
-    this.tiles = [
-    ];
-
+    this.tiles = [];
     this.getData();
   }
 
@@ -16,22 +14,17 @@ class ComicController {
     this._$http
       .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/index`)
       .then((response) => {
-        console.log(response);
-        // this.name = response.data[4].ComicBookName;
-        // this.tiles = response.data.TileCount;
-        console.log(this.tiles);
+        console.log(response.data);
+        this.comic = response.data.filter((comic) => comic.ComicBookId === Number(this.id))[0]
+        console.log(this.comic);
+        this.name = this.comic.ComicBookName;
       });
-  }
-
-  newComic() {
 
     this._$http
-      .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/create`, {
-        Title: this.input
-      })
+      .get(`http://tiycomicbook.azurewebsites.net/comicbookapi/tiles?comicbookid=${this.id}`)
       .then((response) => {
-        this.name = this.input;
-        this.comicId = response.data.Id;
+        console.log(response);
+        this.tiles = response.data;
       });
   }
 
@@ -39,7 +32,7 @@ class ComicController {
 
     this._$http
       .post(`http://tiycomicbook.azurewebsites.net/comicbookapi/createtile`, {
-        comicbookid: this.comicId,
+        comicbookid: this.id,
         TileType: 'small',
         Text: '',
         Image: ''

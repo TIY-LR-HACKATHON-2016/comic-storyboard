@@ -54,7 +54,7 @@ body {
   margin: 0 10px;
   padding: 10px;
   cursor: pointer;
-  cursor: auto;
+  box-shadow: 10px 10px 10px 1px #111;
   padding-left: 30px;
   background: linear-gradient(#fff, #eee, #333); }
   .input:hover {
@@ -65,6 +65,8 @@ body {
 
 .tile {
   background-color: rgba(150, 0, 0, 0.75);
+  height: 300px;
+  width: 300px;
   border: 3px solid #000;
   margin: 10px;
   box-shadow: 10px 10px 10px 1px #111; }
@@ -174,6 +176,100 @@ body {
     margin: 0;
     width: inherit;
     transition: 1s; }
+
+.options {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .options .input {
+    width: 500px; }
+
+.select {
+  background: linear-gradient(#f00, #700, #300); }
+  .select:hover {
+    background: linear-gradient(#fcc, #f00, #700); }
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .carousel select {
+    z-index: 2;
+    height: 25px;
+    font-size: 1rem;
+    background: linear-gradient(#fff, #eee, #333); }
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 154px; }
+  .slider .imgContainer {
+    position: relative; }
+    .slider .imgContainer:hover .cover {
+      opacity: .7;
+      transition: 1s; }
+    .slider .imgContainer img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid black;
+      box-shadow: 10px 10px 10px 1px #111; }
+    .slider .imgContainer .cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 154px;
+      width: 154px;
+      opacity: 0;
+      transition: 1s;
+      background: #000; }
+    .slider .imgContainer .button {
+      position: absolute;
+      width: 50px;
+      top: 50%;
+      left: 43%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      opacity: 0; }
+    .slider .imgContainer:hover .button {
+      opacity: 1; }
+  .slider i {
+    color: #fff;
+    font-size: 50px;
+    margin-right: 10px; }
+    .slider i:last-child {
+      right: 0;
+      margin-left: 10px; }
+
+.tile {
+  margin: 20px auto;
+  font-size: 1.5rem;
+  text-align: center; }
+  .tile img {
+    height: 300px;
+    width: 300px; }
+
+.caption {
+  font-size: 1.5rem;
+  color: #eee;
+  text-align: center;
+  background-color: rgba(150, 0, 0, 0.75);
+  border-left: 3px solid #000;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000;
+  width: 300px;
+  height: 75px;
+  margin: 0 auto;
+  padding: 10px 0;
+  margin-top: -20px;
+  box-shadow: 10px 10px 10px 1px #111; }
+
+.footer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center; }
 
 .small {
   width: 300px;
