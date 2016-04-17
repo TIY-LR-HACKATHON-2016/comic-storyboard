@@ -30,7 +30,7 @@ namespace ComicStoryBook.Web.Migrations
             //    );
             //
 
-            if (!context.ComicBooks.Any())
+            if (context.ComicBooks.Count() < 5)
             {
                 var books = Builder<ComicBook>.CreateListOfSize(8)
                     .All()

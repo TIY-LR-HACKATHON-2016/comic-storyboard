@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ComicStoryBookdbWebContext.cs" />
+    <Compile Include="Controllers\ComicBookAPIController.cs" />
     <Compile Include="Controllers\ComicBooksController.cs" />
     <Compile Include="Controllers\TilesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ComicBookAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
