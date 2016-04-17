@@ -14,7 +14,7 @@ namespace ComicStoryBook.Web.Controllers
         {
             var model =
                 db.ComicBooks
-                    .Select(cb => new { Foo = cb.Name, TileCount = cb.Tiles.Count(), Bar = cb.Id });
+                    .Select(cb => new { ComicBookName = cb.Name, TileCount = cb.Tiles.Count(), ComicBookId = cb.Id });
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
