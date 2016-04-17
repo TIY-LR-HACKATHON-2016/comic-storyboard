@@ -54,17 +54,19 @@ namespace ComicStoryBook.Web.Controllers
             return Json(newTile);
         }
 
-        [HttpPut]
-        public ActionResult EditTile(int? id)
+        [HttpPost]
+        public ActionResult EditTile(int? id, string text, string image, TileType tileType)
         {
-
+            
             if (id == null)
             {
                 return HttpNotFound();
             }
 
             var tile = db.Tiles.Find(id);
-            db.Entry(tile).State = EntityState.Modified;
+            tile.Text = text;
+            tile.Image = image;
+            tile.TileType = TileType.Small;
             db.SaveChanges();
 
             return Json(tile);
@@ -76,7 +78,7 @@ namespace ComicStoryBook.Web.Controllers
             Tile tile = db.Tiles.Find(id);
             db.Tiles.Remove(tile);
             db.SaveChanges();
-            return Json("Index", JsonRequestBehavior.AllowGet);
+            return Content("Done!");
         }
     }
 }
